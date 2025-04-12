@@ -1,0 +1,69 @@
+/* src/assets/styles/global.css */
+@import "tailwindcss";
+
+
+:root {
+    --text-primary: #1a1a1a;
+    --bg-primary: #ffffff;
+    --accent-color: #0061FE;
+  }
+
+/* Custom base styles */
+body {
+    /* font-family: sans-serif; */
+    font-family: ui-monospace;
+}
+
+/* Custom utilities */  
+.glass-effect {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* .button {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  } */
+
+/* Gold button with dark hover effect */
+.btn-gold {
+    background: var(--gold-500);
+    color: var(--dark-900);
+    border: 1px solid var(--gold-500);
+  }
+  .btn-gold:hover {
+    background: var(--gold-400);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+  }
+
+  .card {
+    background: var(--dark-800);
+    border: 1px solid var(--dark-700);
+  }
+  .card-gold {
+    border-top: 4px solid var(--gold-500); /* Gold accent */
+  }
+  
+  .glass-dark {
+    background: rgba(30, 30, 30, 0.8); /* dark-800 with opacity */
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--gold-500);
+  }
+  .gold-gradient {
+    background: linear-gradient(135deg, var(--gold-500) 0%, var(--gold-300) 100%);
+  }
