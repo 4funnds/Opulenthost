@@ -140,7 +140,7 @@ export default defineConfig({
 ```
 
 ### Project Structure
-
+```
 src/
 ├── assets/ # Static assets (images, styles)
 ├── components/ # Reusable React components
@@ -150,7 +150,7 @@ src/
 ├── sections/ # Page sections (e.g., Hero, Services)
 ├── App.jsx # Main application component
 ├── main.jsx # Entry point
-
+```
 ### Testing
 
 **Running Tests**
