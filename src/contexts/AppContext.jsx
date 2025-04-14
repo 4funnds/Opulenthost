@@ -27,4 +27,3 @@ const AppProvider = ({ children }) => {
 const useApp = () => useContext(AppContext);
 
 export { AppProvider, useApp };
-// export const useApp = () => useContext(AppContext);

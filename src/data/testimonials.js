@@ -1,23 +1,22 @@
 export const testimonials = [
   {
     quote:
-      "Transformed our outdated website into a modern, high-converting platform that increased our leads by 40%.",
-    name: "Sarah Johnson",
-    role: "Marketing Director, TechStart",
-    // avatar: "/avatars/sarah-johnson.jpg"
+      "They weren't just developers but strategic partners who understood our business goals and translated them into an effective online presence.",
+    name: "Michael Aditya",
   },
   {
     quote:
-      "Exceptional attention to detail and delivered ahead of schedule. Will definitely work with again.",
-    name: "Michael Chen",
-    role: "Founder, GrowthMetrics",
-    // avatar: "/avatars/michael-chen.jpg"
+      "As a small business owner with limited technical knowledge, I appreciated their clear communication and patience throughout the entire process.",
+    name: "Nathaniel",
   },
   {
     quote:
-      "The custom web app they built streamlined our operations and saved us countless hours each week.",
-    name: "Emily Rodriguez",
-    role: "COO, ServicePro",
-    // avatar: "/avatars/emily-rodriguez.jpg"
+      "From concept to completion in just 2 weeks. The responsive design works flawlessly across all devices, which our customers love.",
+    name: "Marzuqi",
+  },
+  {
+    quote:
+      "My portfolio website was completely revamped with stunning visuals and design. ",
+    name: "Imanuel",
   },
 ];

@@ -1,79 +1,120 @@
-import { motion } from 'framer-motion';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { motion, useMotionValue } from 'framer-motion';
 import Button from '../ui/Button';
 import { FiArrowRight } from 'react-icons/fi';
-import heroImage from '../../assets/images/dazai.svg';
-// import heroPlaceholder from '../../assets/images/hero-placeholder.jpg'; // Create this or use a small version of your image
+import { useEffect, useState } from 'react';
+import GradientText from '../animation/GradientText';
+
 
 const Hero = () => {
-    return (
-        <section className="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-white">
-            <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row items-center">
-                    <div className="md:w-1/2 mb-12 md:mb-0">
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="text-4xl md:text-5xl font-bold leading-tight mb-6"
-                        >
-                            Beautiful, Functional <span className="text-blue-600">Web Solutions</span> for Your Business
-                        </motion.h1>
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-xl text-gray-600 mb-8"
-                        >
-                            Custom web design and development services to help your business stand out and convert visitors into customers.
-                        </motion.p>
+  // Create motion values for 3D tilt effect
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="flex flex-col sm:flex-row gap-4"
-                        >
-                            <Button variant="primary" href="#pricing">
-                                Get a Free Quote
-                            </Button>
-                            <Button variant="outline" href="#work">
-                                View My Work <FiArrowRight className="ml-2" />
-                            </Button>
-                        </motion.div>
-                    </div>
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    x.set(e.clientX - rect.left);
+    y.set(e.clientY - rect.top);
+  };
 
-                    <HeroImage />
-                </div>
-            </div>
-        </section>
-    );
-};
+  return (
+    <section id="home" className="bg-obsidian-navy px-auto py-auto mx-auto md:pt-32 md:pb-24 relative overflow-hidden">
+      {/* Animated background elements */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.1 }}
+        transition={{ duration: 2 }}
+        className="absolute inset-0"
+      >
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-purple-700 mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div className="absolute top-1/2 right-1/3 w-72 h-72 rounded-full bg-purple-500 mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+      </motion.div>
 
-const HeroImage = () => (
-    <div className="md:w-1/2">
-        <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative"
+      {/* Mouse position tracker */}
+      <motion.div
+        className="absolute pointer-events-none z-0"
+        style={{
+          left: mousePosition.x - 20,
+          top: mousePosition.y - 20,
+          width: 50,
+          height: 25,
+          borderRadius: '50%',
+          background: 'gradient(circle, rgba(212,175,55,0.2) 30%, rgba(212,175,55,0) 70%)',
+          transition: 'transform 0.5s ease-out fade',
+        }}
+      >
+      </motion.div>
+
+      <div className="container mx-auto px-6 my-16">
+        <motion.div 
+          className="flex flex-col items-center text-center "
+          onMouseMove={handleMouseMove}
+          style={{
+            perspective: '1000px',
+            transformStyle: 'preserve-3d'
+          }}
         >
-            <div className="bg-white p-4 rounded-xl shadow-xl transform rotate-1">
-                <LazyLoadImage
-                    src={heroImage}
-                    alt="Website Preview"
-                    className="w-full h-64 rounded-lg object-cover"
-                    effect="blur"
-                    // placeholderSrc={heroPlaceholder}
-                    placeholderSrc={`${heroImage}?w=20`}
-                />
-            </div>
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        </motion.div>
-    </div>
-);
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, type: 'spring' }}
+              className="text-4xl md:text-5xl leading-tight my-8"
+            >
+              <GradientText 
+                colors={["#fff9e6","#ffd41a","#998006","#0c000a","#ffe780","#ccaa10","#ffffff"]}
+                animationSpeed={6}
+                className="text-4xl md:text-5xl"
+              >
+                Elevate Your Website, Accelerate Your Growth
+              </GradientText>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl text-linear-90/srgb from-gold-100 to-gold-900 mb-8 max-w-2xl mx-auto"
+            >
+              {/* <ShinyText 
+                text="We provide" 
+                speed={4} 
+                className="font-bold text-gold-400"
+              /> */} We provide a web solutions that understand your business and customers
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 2 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex justify-center space-x-8"
+            >
+              <Button 
+                variant="outline" 
+                href="#work"
+                className="px-6 py-3 text-lg border-2"
+                whileHover={{ 
+                  scale: 1.2,
+                  backgroundColor: 'rgba(212, 175, 55, 0.1)'
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                View My Work <FiArrowRight className="ml-1" />
+              </Button>
+            </motion.div>
+          </motion.div>
+      </div>
+    </section>
+  );
+};
 
 export default Hero;

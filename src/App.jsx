@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import SectionSkeleton from '@/components/ui/SectionSkeleton';
 import './assets/styles/global.css';
+import {pricingPlans} from '@/data/pricing';
 
 // Safe lazy loader
 const safeLazy = (importer) => {
@@ -26,26 +27,26 @@ const Stats = safeLazy(() => import('@/components/sections/Stats'));
 const Work = safeLazy(() => import('@/components/sections/Work'));
 const Testimonials = safeLazy(() => import('@/components/sections/Testimonials'));
 const Process = safeLazy(() => import('@/components/sections/Process'));
-const Pricing = safeLazy(() => import('@/components/sections/Pricing'));
+const CircularPricing = safeLazy(() => import('@/components/sections/CircularPricing'));
 const CTA = safeLazy(() => import('@/components/sections/CTA'));
 
 function App() {
   return (
     <ErrorBoundary>
       <AppProvider>
-        <div className="font-sans text-gray-800">
+        <div className="font-sans text-gold-700 bg-obsidian-navy min-h-screen">
           <Header />
 
-          <main>
+          <main className='space-y-12'>
             <Suspense fallback={<SectionSkeleton />}>
               <Hero />
               <Clients />
               <Services />
               <Stats />
-              <Work />
+              {/* <Work /> */}
               <Testimonials />
               <Process />
-              <Pricing />
+              <CircularPricing plans={pricingPlans} />
               <CTA />
             </Suspense>
           </main>

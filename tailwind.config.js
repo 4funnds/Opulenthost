@@ -4,29 +4,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: {
-        white: "#ffffff",
-        black: "#000000",
-        dark: {
-          900: "#0a0a0a",
-          800: "#1a1a1a",
-          700: "#2a2a2a",
-        },
-        gold: {
-          600: "#CDA434",
-          500: "#ffc107",
-          400: "#ffd966",
-          300: "#E6B800",
-          200: "#F5E6C3",
-        },
-        text: {
-          primary: "#FFFFFF",
-          secondary: "#E5E5E5",
-        },
-      },
       fontFamily: {
-        sans: ["Cormorant Garamond", "serif"],
-        display: ["Playfair Display", "serif"],
+        sans: ["Inter", "sans-serif"],
+        display: ["Playfair Display", "sans-serif"],
       },
       animation: {
         "gold-pulse": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",

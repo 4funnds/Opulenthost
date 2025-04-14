@@ -1,15 +1,15 @@
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
 
-const services = ['Web Design', 'Web Development', 'SEO Optimization', 'E-commerce Solutions'];
+const services = ['Company Landing Page', 'Web Development', 'Web Portfolio', 'Web Design', 'Web Stores', 'Blogs'];
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 text-gray-300 py-12">
-            <div className="container mx-auto px-4">
+        <footer className="bg-gold-900 text-gold-200 py-8">
+            <div className="container mx-auto px-4 text-center">
                 <div className="grid md:grid-cols-4 gap-8 mb-8">
                     <FooterBrand />
                     <FooterLinks title="Services" items={services} />
-                    <FooterLinks title="Company" items={['About', 'Work', 'Process', 'Testimonials']} />
+                    <FooterLinks title="Company" items={['Testimonials', 'Process', 'About']} />
                     <FooterContact />
                 </div>
                 <FooterBottom />
@@ -20,22 +20,16 @@ const Footer = () => {
 
 const FooterBrand = () => (
     <div>
-        <div className="flex items-center mb-4">
-            <span className="text-2xl font-bold text-white">WD</span>
-            <span className="text-2xl font-bold text-gray-300">Freelance</span>
+        <div className="flex items-center mb-4 justify-center">
+            <span className="text-2xl font-bold text-gold-500">Opulent</span>
+            <span className="text-2xl font-bold text-gray-100">Host</span>
         </div>
         <p className="mb-4">
             Professional web design and development services to help your business grow online.
         </p>
-        <div className="flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
-                <FaTwitter size={20} />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
-                <FaLinkedin size={20} />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
-                <FaGithub size={20} />
+        <div className="flex space-x-4 justify-center">
+            <a href="https://www.facebook.com/denisalviano372" className="text-gold-200 hover:text-gold-100 transition-colors" aria-label="Facebook">
+                <FaFacebook size={20} />
             </a>
         </div>
     </div>
@@ -47,7 +41,7 @@ const FooterLinks = ({ title, items }) => (
         <ul className="space-y-2">
             {items.map((item) => (
                 <li key={item.title || item}>
-                    <a href="#" className="hover:text-white transition-colors">
+                    <a href="#" className="text-gold-200 hover:text-gold-100 transition-colors">
                         {item.title || item}
                     </a>
                 </li>
@@ -60,7 +54,7 @@ const FooterContact = () => (
     <div>
         <h4 className="text-white font-bold mb-4">Contact</h4>
         <ul className="space-y-2">
-            <li>dens.alviano@gmail.com</li>
+            <li>hostopulent@gmail.com</li>
             <li>+62 851-4357-0076</li>
             <li>Cikarang, Bekasi</li>
         </ul>
@@ -68,19 +62,19 @@ const FooterContact = () => (
 );
 
 const FooterBottom = () => (
-    <div className="pt-8 border-t border-gray-800 text-sm text-gray-500">
+    <div className="pt-8 border-t border-gray-800 text-sm text-gold-300">
         <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-                © {new Date().getFullYear()} WD Freelance. All rights reserved.
+                © {new Date().getFullYear()} OpulentHost. All rights reserved.
             </div>
             <div className="flex space-x-6">
-                <a href="#" className="hover:text-gray-300 transition-colors">
+                <a href="#" className="hover:text-gold-100 transition-colors">
                     Privacy Policy
                 </a>
-                <a href="#" className="hover:text-gray-300 transition-colors">
+                <a href="#" className="hover:text-gold-100 transition-colors">
                     Terms of Service
                 </a>
-                <a href="#" className="hover:text-gray-300 transition-colors">
+                <a href="#" className="hover:text-gold-100 transition-colors">
                     Cookies
                 </a>
             </div>

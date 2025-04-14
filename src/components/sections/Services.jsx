@@ -1,39 +1,120 @@
 import { motion } from 'framer-motion';
 import SectionHeader from '../ui/SectionHeader';
 import { services } from '../../data/services';
+import { useState } from 'react';
+import ShinyText from '../animation/ShinyText';
 
 const Services = () => {
-    return (
-        <section id="services" className="py-20">
-            <div className="container mx-auto px-4">
-                <SectionHeader
-                    title="My Services"
-                    subtitle="Comprehensive web solutions tailored to your business needs"
-                />
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {services.map((service, index) => (
-                        <ServiceCard key={service.title} service={service} index={index} />
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section id="services" className="py-20 bg-obsidian-navy relative overflow-hidden">
+      {/* Subtle background animation */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.03 }}
+        transition={{ duration: 1.5 }}
+        className="absolute inset-0 bg-gradient-to-br from-gold-500 to-transparent"
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <SectionHeader
+          title={<ShinyText text="Everything you need to develop your website" speed={4} as="h1"/>}
+          subtitle="Our method to provide web solutions tailored to your business needs"
+          titleClass="text-gold-300"
+          subtitleClass="text-gold-500"
+        />
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} service={service} index={index} />
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
-const ServiceCard = ({ service, index }) => (
+const ServiceCard = ({ service, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  return (
     <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        whileHover={{ y: -5 }}
-        className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+      initial={{ opacity: 0, y: 40, rotateX: 15 }}
+      whileInView={{ 
+        opacity: 1, 
+        y: 0, 
+        rotateX: 0,
+        transition: { 
+          duration: 0.6, 
+          delay: index * 0.15,
+          type: 'spring',
+          stiffness: 100
+        } 
+      }}
+      viewport={{ once: false, margin: "-50px" }}
+      whileHover={{ 
+        y: -10,
+        rotateZ: isHovered ? [0, -2, 2, -1, 1, 0] : 0,
+        transition: { duration: 0.5 }
+      }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      style={{ transformStyle: 'preserve-3d' }}
+      className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all h-full"
     >
-        <div className="mb-6">{service.icon}</div>
-        <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-        <p className="text-gray-600">{service.description}</p>
+      <motion.div 
+        className="mb-6 text-gold-500 text-3xl"
+        animate={{
+          scale: isHovered ? [1, 1.1, 1] : 1,
+          transition: { duration: 0.6 }
+        }}
+      >
+        {service.icon}
+      </motion.div>
+      <motion.h3 
+        className="text-xl font-bold mb-3 text-gold-900"
+        animate={{
+          color: isHovered ? '#D4AF37' : '#1a1a2e',
+          transition: { duration: 0.3 }
+        }}
+      >
+        {service.title}
+      </motion.h3>
+      <motion.p 
+        className="text-obsidian-black"
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ 
+          opacity: 1, 
+          height: 'auto',
+          transition: { delay: index * 0.15 + 0.2 }
+        }}
+      >
+        {service.description}
+      </motion.p>
+      
+      <motion.div 
+        className="absolute inset-0 rounded-xl overflow-hidden z-0"
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: isHovered ? 0.1 : 0,
+          background: 'radial-gradient(circle at center, rgba(212,175,55,0.3) 0%, rgba(0,0,0,0) 70%)',
+          transition: { duration: 0.4 }
+        }}
+      />
     </motion.div>
-);
+  );
+};
 
 export default Services;

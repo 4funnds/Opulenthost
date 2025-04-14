@@ -1,28 +1,74 @@
 /* src/assets/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-gold-100: #fff9e6;
+  --color-gold-200: #fff0b3;
+  --color-gold-300: #ffe780;
+  --color-gold-400: #ffdd4d;
+  --color-gold-500: #ffd41a;
+  --color-gold-600: #e6bf15;
+  --color-gold-700: #ccaa10;
+  --color-gold-800: #b3950b;
+  --color-gold-900: #998006;
+
+  /* --color-obsidian-navy: #040221; */
+  --color-obsidian-green: #051603;
+  --color-obsidian-black: #0c000a;
+  --color-obsidian-navy: #040221;
+
+  --animate-gold-pulse: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+
+  --shadow-gold-sm: 0 2px 8px rgba(212, 175, 55, 0.3);
+  --shadow-gold-md: 0 4px 12px rgba(212, 175, 55, 0.4);
+  --shadow-gold-lg: 0 8px 24px rgba(212, 175, 55, 0.5);
+
+  --default-font-family: sans-serif
+}
 
 :root {
-    --text-primary: #1a1a1a;
-    --bg-primary: #ffffff;
-    --accent-color: #0061FE;
+    text-decoration-color: oklch(92.4% 0.12 95.746);
+    background-color: oklch(98.7% 0.022 95.277);
+    accent-color: oklch(82.8% 0.189 84.429);
+    
   }
 
 /* Custom base styles */
 body {
-    /* font-family: sans-serif; */
-    font-family: ui-monospace;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Custom utilities */  
-.glass-effect {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.animate-blob {
+  animation: blob 7s infinite ease-in-out;
 }
 
 .animation-delay-2000 {
     animation-delay: 2s;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes shine {
+  0% { background-position: 150% 0; }
+  100% { background-position: -50% 0; }
 }
 
 /* Print styles */
@@ -32,38 +78,32 @@ body {
     }
 }
 
-/* .button {
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  } */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-/* Gold button with dark hover effect */
-.btn-gold {
-    background: var(--gold-500);
-    color: var(--dark-900);
-    border: 1px solid var(--gold-500);
-  }
-  .btn-gold:hover {
-    background: var(--gold-400);
-    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
-  }
+@keyframes shine {
+  0% { background-position: 150% 0; }
+  100% { background-position: -50% 0; }
+}
 
-  .card {
-    background: var(--dark-800);
-    border: 1px solid var(--dark-700);
+.animate-gradient {
+  animation: gradient linear infinite;
+}
+
+.animate-shine {
+  animation: shine linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob
+  .animate-gradient,
+  .animate-shine {
+    animation: none !important;
   }
-  .card-gold {
-    border-top: 4px solid var(--gold-500); /* Gold accent */
+  * {
+    transition: none !important;
   }
-  
-  .glass-dark {
-    background: rgba(30, 30, 30, 0.8); /* dark-800 with opacity */
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--gold-500);
-  }
-  .gold-gradient {
-    background: linear-gradient(135deg, var(--gold-500) 0%, var(--gold-300) 100%);
-  }
+}
