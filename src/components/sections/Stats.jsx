@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 const stats = [
   { value: 3, label: 'Months of Basic Support Included' },
   { value: 14, label: 'Day Delivery Timeline' },
-  { value: 2, label: 'Rounds of Revision Included' },
+  { value: 3, label: 'Rounds of Revision Included' },
   { value: 100, label: 'Website Features Available' },
 ];
 

@@ -49,40 +49,21 @@ const CircularPricing = ({ plans }) => {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-obsidian-navy relative overflow-hidden">
+    <section id="pricing" className="py-12 md:py-20 bg-obsidian-navy relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">
             <ShinyText text="Our Pricing" speed={8} className='text-gold-500'/>
           </h2>
-          <p className="text-gold-300 text-lg">
+          <p className="text-gold-300 text-base md:text-lg">
             Flexible options to fit your budget and requirements
           </p>
         </div>
 
         <div className="relative max-w-5xl mx-auto">
-          {plans.length > 1 && (
-            <>
-              <button 
-                onClick={prevSlide}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 p-3 rounded-full bg-gold-500 text-obsidian-navy hover:bg-gold-400 transition-colors shadow-lg"
-                aria-label="Previous plans"
-              >
-                <FiChevronLeft size={24} />
-              </button>
-              <button 
-                onClick={nextSlide}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 p-3 rounded-full bg-gold-500 text-obsidian-navy hover:bg-gold-400 transition-colors shadow-lg"
-                aria-label="Next plans"
-              >
-                <FiChevronRight size={24} />
-              </button>
-            </>
-          )}
-
           <div 
             ref={containerRef}
-            className="relative h-[32rem] flex items-center justify-center"
+            className="relative h-[24rem] md:h-[32rem] flex items-center justify-center mb-8"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -97,12 +78,12 @@ const CircularPricing = ({ plans }) => {
                 const scale = position === 0 ? 1 : 0.85;
                 const zIndex = position === 0 ? 10 : 5 - Math.abs(position);
                 const opacity = position === 0 ? 1 : 0.7;
-                const xOffset = position * 320 + translateX * 0.5;
+                const xOffset = position * (window.innerWidth < 768 ? 280 : 320) + translateX * 0.5;
 
                 return (
                   <motion.div
                     key={`${plan.name}-${currentIndex + index}`}
-                    className={`absolute w-80 h-[28rem] rounded-3xl p-8 flex flex-col items-center justify-between ${position === 0 ? 'cursor-default' : 'cursor-pointer'}`}
+                    className={`absolute w-72 md:w-80 h-[20rem] md:h-[28rem] rounded-3xl p-6 md:p-8 flex flex-col items-center justify-between ${position === 0 ? 'cursor-default' : 'cursor-pointer'}`}
                     style={{
                       zIndex,
                       background: 'linear-gradient(135deg, #040221 0%, #0a0a2e 100%)',
@@ -130,26 +111,26 @@ const CircularPricing = ({ plans }) => {
                     }}
                   >
                     <div className="text-center w-full">
-                      <h3 className="text-2xl font-bold mb-2 text-gold-300">{plan.name}</h3>
-                      <div className="text-4xl font-bold my-4 text-gold-500">{plan.price}</div>
-                      <p className="text-gold-400 mb-6 text-sm min-h-[3rem]">{plan.description}</p>
+                      <h3 className="text-xl md:text-2xl font-bold mb-2 text-gold-300">{plan.name}</h3>
+                      <div className="text-3xl md:text-4xl font-bold my-3 md:my-4 text-gold-500">{plan.price}</div>
+                      <p className="text-gold-400 mb-4 md:mb-6 text-xs md:text-sm min-h-[2.5rem] md:min-h-[3rem]">{plan.description}</p>
                       
-                      <ul className="mb-6 space-y-2 text-gold-300 text-sm text-left pl-4">
+                      <ul className="mb-4 md:mb-6 space-y-2 text-gold-300 text-xs md:text-sm text-left pl-4">
                         {plan.features.map((feature) => (
                           <li key={feature} className="flex items-start">
-                            <FiCheck className="text-gold-500 mr-2 mt-1 flex-shrink-0" />
+                            <FiCheck className="text-gold-500 mr-2 mt-0.5 md:mt-1 flex-shrink-0" />
                             <span>{feature}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     
-                    <div className="w-full mt-auto">
+                    <div className="w-full mt-2 md:mt-auto">
                       <Button
                         variant="outline"
                         fullWidth
                         href="#contact"
-                        className="bg-linear-90/oklch from-gold-500 via-gold-300 to-gold-900 text-obsidian-black hover:bg-gold-100 py-3"
+                        className="bg-linear-90/oklch from-gold-500 via-gold-300 to-gold-900 text-obsidian-black hover:bg-gold-100 py-2 md:py-3"
                       >
                         {plan.cta || "Order Now"}
                       </Button>
@@ -159,6 +140,31 @@ const CircularPricing = ({ plans }) => {
               })}
             </AnimatePresence>
           </div>
+
+          {/* Navigation arrows positioned below */}
+          {plans.length > 1 && (
+            <div className="flex justify-center items-center gap-8 mt-4">
+              <motion.button
+                onClick={prevSlide}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-3 rounded-full bg-gold-500 text-obsidian-navy hover:bg-gold-400 transition-colors shadow-lg"
+                aria-label="Previous plans"
+              >
+                <FiChevronLeft size={24} />
+              </motion.button>
+              
+              <motion.button
+                onClick={nextSlide}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-3 rounded-full bg-gold-500 text-obsidian-navy hover:bg-gold-400 transition-colors shadow-lg"
+                aria-label="Next plans"
+              >
+                <FiChevronRight size={24} />
+              </motion.button>
+            </div>
+          )}
         </div>
       </div>
     </section>
