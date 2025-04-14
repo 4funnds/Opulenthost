@@ -100,7 +100,7 @@ const Hero = () => {
             >
               <Button 
                 variant="outline" 
-                href="#work"
+                href="#services"
                 className="px-6 py-3 text-lg border-2"
                 whileHover={{ 
                   scale: 1.2,
@@ -108,7 +108,7 @@ const Hero = () => {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
-                View My Work <FiArrowRight className="ml-1" />
+                View My Skills
               </Button>
             </motion.div>
           </motion.div>
