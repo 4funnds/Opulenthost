@@ -41,7 +41,7 @@ const FooterLinks = ({ title, items }) => (
         <ul className="space-y-2">
             {items.map((item) => (
                 <li key={item.title || item}>
-                    <a href="#" className="text-gold-200 hover:text-gold-100 transition-colors">
+                    <a className="text-gold-200 hover:text-gold-100 transition-colors">
                         {item.title || item}
                     </a>
                 </li>
