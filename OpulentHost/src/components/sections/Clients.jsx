@@ -21,14 +21,14 @@ const ClientLogo = ({ name, index, inView }) => (
     } : {}}
     whileHover={{
       scale: 1.1,
-      color: '#D4AF37',
-      textShadow: '0 0 8px rgba(212, 175, 55, 0.4)'
+      color: 'muted-gold',
+      textShadow: '0 0 8px oklch(90% 0.05 90)'
     }}
     transition={{ duration: 0.3 }}
     className="flex justify-center"
     style={{ transformStyle: 'preserve-3d' }}
   >
-    <div className="text-gold-500 transition-all text-2xl font-bold cursor-default">
+    <div className="text-accent-color transition-all text-2xl font-bold cursor-default">
       {name}
     </div>
   </motion.div>
@@ -41,20 +41,21 @@ const Clients = () => {
   });
 
   return (
-    <section ref={ref} className="py-20 bg-obsidian-navy text-gold-700 relative overflow-hidden">
+    <section ref={ref} className="py-20 relative overflow-hidden">
+
       {/* Subtle background animation */}
       <motion.div 
         initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 0.03 } : {}}
+        animate={inView ? { opacity: 0.02 } : {}}
         transition={{ duration: 1 }}
-        className="absolute inset-0 bg-gradient-to-r from-gold-500 to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-muted-gold to-transparent"
       />
       
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
           title="We ready to serve you"
           center
-          titleClass="text-gold-500 hover:text-gold-300 transition-colors"
+          titleClass="text-light-gold hover:text-accent-color transition-colors"
           // subtitleClass="text-gold-700"
         />
         <motion.div 

@@ -6,21 +6,21 @@ import ShinyText from '../animation/ShinyText';
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-obsidian-navy relative overflow-hidden">
+    <section id="services" className="py-20 relative overflow-hidden">
       {/* Subtle background animation */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.03 }}
         transition={{ duration: 1.5 }}
-        className="absolute inset-0 bg-gradient-to-br from-gold-500 to-transparent"
+        className="absolute inset-0"
       />
       
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
-          title={<ShinyText text="Everything you need to develop your website" speed={4} as="h1"/>}
-          subtitle="Our method to provide web solutions tailored to your business needs"
-          titleClass="text-gold-300"
-          subtitleClass="text-gold-500"
+          title={<ShinyText text="Everything we have to develop your website" speed={4} as="h1"/>}
+          subtitle="Our skillset to provide web solutions tailored to your business needs"
+          titleClass="text-light-gold"
+          subtitleClass="text-accent-color"
         />
         <motion.div 
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
@@ -72,10 +72,10 @@ const ServiceCard = ({ service, index }) => {
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       style={{ transformStyle: 'preserve-3d' }}
-      className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all h-full"
+      className="bg-charcoal/20 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all h-full"
     >
       <motion.div 
-        className="mb-6 text-gold-500 text-3xl"
+        className="mb-6 text-ivory text-3xl"
         animate={{
           scale: isHovered ? [1, 1.1, 1] : 1,
           transition: { duration: 0.6 }
@@ -84,16 +84,16 @@ const ServiceCard = ({ service, index }) => {
         {service.icon}
       </motion.div>
       <motion.h3 
-        className="text-xl font-bold mb-3 text-gold-900"
+        className="text-xl font-bold font-[inter] mb-3 text-ivory"
         animate={{
-          color: isHovered ? '#D4AF37' : '#1a1a2e',
+          color: isHovered ? 'oklch(80% 0.1 90)' : '',
           transition: { duration: 0.3 }
         }}
       >
         {service.title}
       </motion.h3>
       <motion.p 
-        className="text-obsidian-black"
+        className="text-accent-color"
         initial={{ opacity: 0, height: 0 }}
         animate={{ 
           opacity: 1, 

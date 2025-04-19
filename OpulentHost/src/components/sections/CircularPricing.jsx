@@ -11,6 +11,11 @@ const CircularPricing = ({ plans }) => {
   const [translateX, setTranslateX] = useState(0);
   const containerRef = useRef(null);
 
+  const activeCardGradient = {
+    background: 'linear-gradient(230deg, oklch(34.09% 0.022 267.38) -20%, oklch(75% 0.22 90) 25%)',
+    border: '3px solid oklch(81% 0.19 90)'
+  };
+
   const visiblePlans = [
     plans[(currentIndex - 1 + plans.length) % plans.length],
     plans[currentIndex],
@@ -49,13 +54,14 @@ const CircularPricing = ({ plans }) => {
   };
 
   return (
-    <section id="pricing" className="py-12 md:py-20 bg-obsidian-navy relative overflow-hidden">
+    <section id="pricing" className="py-12 md:py-20 relative overflow-hidden">
+      
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">
-            <ShinyText text="Our Pricing" speed={8} className='text-gold-500'/>
+            <ShinyText text="Our Pricing" speed={6} className='text-light-gold font-[inter]'/>
           </h2>
-          <p className="text-gold-300 text-base md:text-lg">
+          <p className="text-accent-color font-[inter] text-base md:text-lg">
             Flexible options to fit your budget and requirements
           </p>
         </div>
@@ -77,18 +83,19 @@ const CircularPricing = ({ plans }) => {
                 const position = index - 1; // -1: left, 0: center, 1: right
                 const scale = position === 0 ? 1 : 0.85;
                 const zIndex = position === 0 ? 10 : 5 - Math.abs(position);
-                const opacity = position === 0 ? 1 : 0.7;
+                const opacity = position === 0 ? 1 : 0.45;
                 const xOffset = position * (window.innerWidth < 768 ? 280 : 320) + translateX * 0.5;
 
                 return (
                   <motion.div
                     key={`${plan.name}-${currentIndex + index}`}
                     className={`absolute w-72 md:w-80 h-[20rem] md:h-[28rem] rounded-3xl p-6 md:p-8 flex flex-col items-center justify-between ${position === 0 ? 'cursor-default' : 'cursor-pointer'}`}
-                    style={{
+                    style={position === 0 ? activeCardGradient : {
                       zIndex,
-                      background: 'linear-gradient(135deg, #040221 0%, #0a0a2e 100%)',
-                      border: '2px solid rgba(255, 212, 26, 0.3)',
-                      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+                      background: 'oklch(80% 0.1 90)',
+                      border: '2px solid oklch(80% 0.1 90)',
+                      boxShadow: '0 10px 25px oklch(85% 0.15 90)',
+                      opacity: 0.75
                     }}
                     initial={{ 
                       x: xOffset,
@@ -107,30 +114,30 @@ const CircularPricing = ({ plans }) => {
                     onClick={() => position !== 0 && (position < 0 ? prevSlide() : nextSlide())}
                     whileHover={{ 
                       scale: position === 0 ? 1.02 : 0.9,
-                      boxShadow: position === 0 ? '0 15px 40px rgba(255, 212, 26, 0.2)' : '0 5px 20px rgba(0, 0, 0, 0.2)'
+                      boxShadow: position === 0 ? '0 15px 40px oklch(90% 0.05 90)' : '0 5px 10px oklch(80% 0.1 90)'
                     }}
                   >
                     <div className="text-center w-full">
-                      <h3 className="text-xl md:text-2xl font-bold mb-2 text-gold-300">{plan.name}</h3>
-                      <div className="text-3xl md:text-4xl font-bold my-3 md:my-4 text-gold-500">{plan.price}</div>
-                      <p className="text-gold-400 mb-4 md:mb-6 text-xs md:text-sm min-h-[2.5rem] md:min-h-[3rem]">{plan.description}</p>
+                      <h3 className="text-xl md:text-2xl font-[inter] font-bold mb-2 text-dark-navy">{plan.name}</h3>
+                      <div className="text-3xl md:text-4xl font-[inter] font-bold my-3 md:my-4 text-dark-navy">{plan.price}</div>
+                      <p className="text-dark-navy font-[inter] mb-4 md:mb-6 text-xs md:text-sm min-h-[2.5rem] md:min-h-[3rem]">{plan.description}</p>
                       
-                      <ul className="mb-4 md:mb-6 space-y-2 text-gold-300 text-xs md:text-sm text-left pl-4">
+                      <ul className="mb-4 md:mb-6 space-y-2 text-dark-navy font-[inter] text-xs md:text-sm text-left pl-4">
                         {plan.features.map((feature) => (
                           <li key={feature} className="flex items-start">
-                            <FiCheck className="text-gold-500 mr-2 mt-0.5 md:mt-1 flex-shrink-0" />
+                            <FiCheck className="text-dark-navy opacity-100 mr-2 mt-0.5 md:mt-1 flex-shrink-0" />
                             <span>{feature}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     
-                    <div className="w-full mt-2 md:mt-auto">
+                    <div className="w-full mt-0 md:mt-auto">
                       <Button
                         variant="outline"
                         fullWidth
                         href="#contact"
-                        className="bg-linear-90/oklch from-gold-500 via-gold-300 to-gold-900 text-obsidian-black hover:bg-gold-100 py-2 md:py-3"
+                        className="md:py-3 text-dark-navy font-[inter] bg-charcoal/25 border-2 border-ivory"
                       >
                         {plan.cta || "Order Now"}
                       </Button>
@@ -146,22 +153,22 @@ const CircularPricing = ({ plans }) => {
             <div className="flex justify-center items-center gap-8 mt-4">
               <motion.button
                 onClick={prevSlide}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.1, backgroundColor: 'oklch(90% 0.05 90)' }}
                 whileTap={{ scale: 0.95 }}
-                className="p-3 rounded-full bg-gold-500 text-obsidian-navy hover:bg-gold-400 transition-colors shadow-lg"
+                className="p-3 rounded-full border border-primary-gold transition-colors shadow-lg"
                 aria-label="Previous plans"
               >
-                <FiChevronLeft size={24} />
+                <FiChevronLeft size={24} className='text-dark-gold' />
               </motion.button>
               
               <motion.button
                 onClick={nextSlide}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.1, backgroundColor: 'oklch(90% 0.05 90)' }}
                 whileTap={{ scale: 0.95 }}
-                className="p-3 rounded-full bg-gold-500 text-obsidian-navy hover:bg-gold-400 transition-colors shadow-lg"
+                className="p-3 rounded-full border border-primary-gold transition-colors shadow-lg"
                 aria-label="Next plans"
               >
-                <FiChevronRight size={24} />
+                <FiChevronRight size={24} className='text-dark-gold' />
               </motion.button>
             </div>
           )}

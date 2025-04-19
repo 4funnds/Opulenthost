@@ -8,7 +8,7 @@ const CTA = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section id="contact" className="py-20 bg-obsidian-navy text-white relative overflow-hidden">
+    <section id="contact" className="py-20 bg-dark-navy relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
@@ -16,8 +16,8 @@ const CTA = () => {
         transition={{ duration: 1.5 }}
         className="absolute top-0 left-0 w-full h-full"
       >
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gold-500 mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div className="absolute top-1/2 right-1/3 w-72 h-72 rounded-full bg-obsidian-navy mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary-gold mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+        <div className="absolute top-1/2 right-1/3 w-72 h-72 rounded-full bg-muted-gold mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
       </motion.div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -28,7 +28,7 @@ const CTA = () => {
           transition={{ duration: 0.8, type: 'spring' }}
         >
           <motion.h2 
-            className="text-3xl font-bold mb-6 text-gold-500"
+            className="text-3xl font-[inter] font-bold mb-6 text-primary-gold"
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
@@ -36,12 +36,12 @@ const CTA = () => {
           </motion.h2>
           
           <motion.p 
-            className="text-xl mb-8 max-w-2xl mx-auto text-gold-300"
+            className="text-xl font-[inter] mb-8 max-w-2xl mx-auto text-accent-color"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Let's discuss how I can help you achieve your business goals with a custom web solution.
+            Let's discuss how We can help you achieve your business goals with a custom web solution.
           </motion.p>
 
           <motion.div
@@ -51,7 +51,7 @@ const CTA = () => {
             <Button
               variant="primary"
               href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSBmljzwGvgJwHScQNVvXldtqdVThtgLLBmsDfkwRmvPHTxfVGTWGvmTGGvGbPGPrhZjmnnK"
-              className='relative overflow-hidden transition-colors hover:bg-linear-90/oklch from-gold-500 via-gold-300 to-gold-900'
+              className='relative overflow-hidden transition-all hover:scale-102'
             >
               Get in Touch
             </Button>

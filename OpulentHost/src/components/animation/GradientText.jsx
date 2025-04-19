@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export default function GradientText({
     children,
     className = "",
-    colors = ["#fff9e6", "#ffd41a","#998006", "#ffe780", "#ccaa10"],
+    colors = ["#f4c947", "#efb900", "#050b18", "#d7bb70", "#ebddb9"],
     animationSpeed = 8,
     showBorder = false,
     as = 'div',

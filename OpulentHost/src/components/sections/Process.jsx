@@ -18,20 +18,20 @@ const Process = () => {
   });
 
   return (
-    <section id="process" ref={sectionRef} className="py-20 bg-obsidian-navy relative">
+    <section id="process" ref={sectionRef} className="py-20 bg-dark-navy relative">
       {/* Animated background line */}
       <motion.div
         initial={{ scaleY: 0 }}
         animate={inView ? { scaleY: 1 } : {}}
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        className="hidden md:block absolute left-1/2 h-full w-0.5 bg-gradient-to-b from-transparent via-gold-200 to-transparent origin-top transform -translate-x-1/2"
+        className="hidden md:block absolute left-1/2 h-full w-0.5 bg-gradient-to-b from-transparent via-accent-color to-transparent origin-top transform -translate-x-1/2"
       />
       
       <div className="container mx-auto px-4">
         <SectionHeader
-          title={<ShinyText text="Our Professional Approach" speed={4} className='text-gold-300'/>}
+          title={<ShinyText text="Our Professional Approach" speed={4} className='text-light-gold'/>}
           subtitle= "A streamlined approach to delivering exceptional results"
-          subtitleClass="text-gold-500"
+          subtitleClass="text-accent-color"
         />
         <div className="max-w-4xl mx-auto">
           <div className="relative">
@@ -72,7 +72,7 @@ const ProcessStep = ({ step, index, inView }) => {
       className={`mb-12 md:mb-16 relative ${index % 2 === 0 ? 'md:text-right md:pr-16' : 'md:text-left md:pl-16'}`}
     >
       <motion.div
-        className="hidden md:block absolute top-0 left-1/2 w-4 h-4 bg-gold-500 rounded-full transform -translate-x-1/2 z-10"
+        className="hidden md:block absolute top-0 left-1/2 w-4 h-4 bg-light-gold rounded-full transform -translate-x-1/2 z-10"
         initial={{ scale: 0 }}
         animate={inView ? { scale: 1 } : {}}
         transition={{ delay: index * 0.15 + 0.3 }}
@@ -91,14 +91,14 @@ const ProcessStep = ({ step, index, inView }) => {
         }}
       >
         <motion.h3 
-          className="text-xl font-bold mb-2 text-gold-500"
-          whileHover={{ color: '#D4AF37' }}
+          className="text-xl font-bold mb-2 text-light-gold"
+          whileHover={{ color: 'muted-gold' }}
           transition={{ duration: 0.2 }}
         >
           {step.title}
         </motion.h3>
         <motion.p 
-          className="text-gold-300"
+          className="text-accent-color"
           initial={{ opacity: 0, x: index % 2 === 0 ? -10 : 10 }}
           animate={inView ? { 
             opacity: 1, 

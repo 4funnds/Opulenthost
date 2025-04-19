@@ -3,31 +3,25 @@ import { useInView } from 'react-intersection-observer';
 import SectionHeader from '../ui/SectionHeader';
 import { FiExternalLink, FiLoader } from 'react-icons/fi';
 import { FaReact, FaWordpress } from 'react-icons/fa';
-import { SiNextdotjs, SiTailwindcss, SiTypescript } from 'react-icons/si';
+import { SiJavascript, SiTailwindcss, SiVite } from 'react-icons/si';
 import { useState } from 'react';
 import ShinyText from '../animation/ShinyText';
 
 const projects = [
   {
     id: 1,
-    title: 'Client Project 1',
-    description: 'A modern e-commerce platform with increased conversion rates',
-    tech: ['react', 'next', 'typescript']
+    title: 'Zora Fashion Store',
+    description: 'A modern online store platform with react and tailwindcss',
+    tech: ['react', 'tailwindcss', 'javascript', 'vite', 'wordpress']
   },
-  {
-    id: 2,
-    title: 'Client Project 2',
-    description: 'A corporate website with improved user engagement',
-    tech: ['wordpress', 'tailwind']
-  }
 ];
 
 const techIcons = {
-  react: <FaReact className="text-obsidian-black" />,
-  next: <SiNextdotjs className="text-obsidian-black" />,
-  typescript: <SiTypescript className="text-obsidian-black" />,
-  wordpress: <FaWordpress className="text-obsidian-black" />,
-  tailwind: <SiTailwindcss className="text-obsidian-black" />
+  react: <FaReact className="text-ivory" />,
+  javascript: <SiJavascript className="text-ivory" />,
+  vite: <SiVite className="text-ivory" />,
+  wordpress: <FaWordpress className="text-ivory" />,
+  tailwind: <SiTailwindcss className="text-ivory" />
 };
 
 const Work = () => {
@@ -45,13 +39,12 @@ const Work = () => {
   };
 
   return (
-    <section id="work" ref={sectionRef} className="py-20 bg-obsidian-navy">
+    <section id="work" ref={sectionRef} className="py-20">
       <div className="container mx-auto px-4">
         <SectionHeader
-          title={<ShinyText text="Recent Projects" speed={8} />}
+          title={<ShinyText text="Recent Projects" speed={8} className='text-light-gold font-[inter] font-bold' />}
           subtitle="See examples of my work and the results achieved for clients"
-          titleClass="text-gold-300"
-          subtitleClass="text-gold-500"
+          subtitleClass="text-accent-color font-[inter] font-semibold"
         />
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
@@ -95,13 +88,13 @@ const ProjectCard = ({ project, index, inView, isLoading, onViewCaseStudy }) => 
       className="relative"
     >
       <motion.div
-        className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all h-full"
+        className="bg-charcoal/25 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all h-full"
         whileHover={{ 
           boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
         }}
-      >
+      > 
         <div 
-          className="h-64 bg-linear-to-r/oklch from-gold-500 via-gold-300 to-gold-900 flex items-center justify-center text-white relative overflow-hidden"
+          className="h-64 flex items-center justify-center bg-dark-navy text-ivory relative overflow-hidden"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -111,11 +104,15 @@ const ProjectCard = ({ project, index, inView, isLoading, onViewCaseStudy }) => 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.2 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-black"
+                className="absolute inset-0 bg-dark-navy"
               />
             )}
           </AnimatePresence>
-          <span className="text-xl text-obsidian-black font-medium z-10">Project {project.id} Screenshot</span>
+
+          <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="black"/>
+              <text x="50%" y="55%" class="logo-text-zora">ZORA</text>
+          </svg>
           
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -124,18 +121,20 @@ const ProjectCard = ({ project, index, inView, isLoading, onViewCaseStudy }) => 
           >
             <button 
               onClick={onViewCaseStudy}
-              className="bg-linear-90/oklch from-gold-500 via-gold-300 to-gold-900 text-obsidian-black px-6 py-2 rounded-lg font-medium flex items-center"
+              className="bg-linear-90/oklch from-primary-gold via-light-gold to-dark-gold text-charcoal px-6 py-2 rounded-lg font-semibold font-[inter] flex items-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              Quick Preview
+              <a href="https://zora-store.vercel.app">
+              Review our work
+              </a>
             </button>
           </motion.div>
         </div>
         
         <div className="p-6">
-          <h3 className="text-xl font-bold mb-2 text-obsidian-black">{project.title}</h3>
-          <p className="text-obsidian-black mb-4">{project.description}</p>
+          <h3 className="text-xl font-bold font-[inter] mb-2 text-ivory">{project.title}</h3>
+          <p className="text-accent-color font-[inter] font-medium mb-4">{project.description}</p>
           
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tech.map(tech => (
@@ -155,21 +154,21 @@ const ProjectCard = ({ project, index, inView, isLoading, onViewCaseStudy }) => 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="text-gold-500 font-medium inline-flex items-center"
+                className="text-dark-gold font-medium inline-flex items-center"
               >
-                <FiLoader className="animate-spin mr-2" /> Loading Case Study...
+                <FiLoader className="animate-spin mr-2" /> Loading...
               </motion.div>
             ) : (
               <motion.a
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                href="#"
-                className="text-obsidian-black font-medium inline-flex items-center hover:text-gold-700"
-                whileHover={{ x: 5 }}
+                href="#pricing"
+                className="text-light-gold font-semibold font-[inter] inline-flex items-center hover:text-accent-color"
+                whileHover={{ x: 5 , scale: 1.02}}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                View Case Study <FiExternalLink className="ml-1" />
+                You can have it too! <FiExternalLink className="ml-1" />
               </motion.a>
             )}
           </AnimatePresence>

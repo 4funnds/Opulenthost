@@ -31,10 +31,10 @@ const Logo = () => (
         transition={{ duration: 0.5 }}
         className="flex items-center"
     >        
-        <span className="text-2xl font-semibold text-gold-500">Opulent</span>
+        <span className="text-2xl font-semibold font-[inter] text-primary-gold">Opulent</span>
         <RotatingText
             texts={['Host', 'Sites', 'Blogs', 'Commerce', 'Stores', 'Folio']}
-            mainClassName="px-auto ml-1.5 sm:px-2 md:px-3 bg-linear-90/oklch from-gold-500 via-gold-300 to-gold-900 text-2xl font-semibold text-obsidian-navy overflow-hidden py-auto sm:py-1 md:py-2 justify-center rounded-lg"
+            mainClassName="px-auto ml-1.5 sm:px-2 md:px-3 bg-linear-90/oklch from-primary-gold via-light-gold to-dark-gold text-xl font-semibold font-[inter] text-charcoal overflow-hidden py-auto sm:py-1 md:py-2 justify-center rounded-lg"
             staggerFrom={"last"}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
@@ -60,7 +60,7 @@ const DesktopNav = ({ links }) => (
             <a
                 key={link.name}
                 href={link.href}
-                className="text-gold-500 hover:text-gold-300 transition-colors font-medium"
+                className="text-primary-gold hover:text-accent-color transition-colors font-medium font-[inter]"
             >
                 {link.name}
             </a>

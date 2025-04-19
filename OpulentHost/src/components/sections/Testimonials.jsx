@@ -45,20 +45,20 @@ const Testimonials = () => {
   }
 
   return (
-    <section id="testimonials" className="py-12 md:py-20 bg-obsidian-navy relative overflow-hidden">
+    <section id="testimonials" className="py-12 md:py-20 relative overflow-hidden">
       {/* Animated background */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.03 }}
         transition={{ duration: 1.5 }}
-        className="absolute inset-0 bg-gradient-to-b from-gold-500 to-transparent"
+        className="absolute inset-0"
       />
       
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
-          title={<ShinyText text="Client's Stories" speed={2} className='text-gold-300'/>}
+          title={<ShinyText text="Client's Stories" speed={2} className='text-light-gold font-[inter]'/>}
           subtitle="What our clients say about our services"
-          subtitleClass='text-gold-500'
+          subtitleClass='text-accent-color font-[inter]'
         />
 
         <div className="relative">
@@ -85,25 +85,25 @@ const Testimonials = () => {
           </div>
 
           {/* Navigation arrows - always visible but smaller on mobile */}
-          <div className="flex justify-center mt-6 md:mt-8 space-x-4">
+          <div className="flex justify-center md:mt-4 space-x-4">
             <motion.button
               onClick={prevTestimonial}
-              whileHover={{ scale: 1.1, backgroundColor: 'rgba(212, 175, 55, 0.1)' }}
+              whileHover={{ scale: 1.1, backgroundColor: 'oklch(90% 0.05 90)' }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-full border border-gold-500 text-gold-500"
+              className="p-2 rounded-full border border-primary-gold"
               aria-label="Previous testimonial"
             >
-              <FiChevronLeft size={20} className="md:w-6 md:h-6" />
+              <FiChevronLeft size={20} className="md:w-6 md:h-6 text-dark-gold" />
             </motion.button>
             
             <motion.button
               onClick={nextTestimonial}
-              whileHover={{ scale: 1.1, backgroundColor: 'rgba(212, 175, 55, 0.1)' }}
+              whileHover={{ scale: 1.1, backgroundColor: 'oklch(90% 0.05 90)' }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-full border border-gold-500 text-gold-500"
+              className="p-2 rounded-full border border-primary-gold"
               aria-label="Next testimonial"
             >
-              <FiChevronRight size={20} className="md:w-6 md:h-6" />
+              <FiChevronRight size={20} className="md:w-6 md:h-6 text-dark-gold" />
             </motion.button>
           </div>
 
@@ -117,8 +117,8 @@ const Testimonials = () => {
                   className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
                     currentIndex >= index * cardsToShow && 
                     currentIndex < (index + 1) * cardsToShow 
-                      ? 'bg-gold-500' 
-                      : 'bg-gray-300'
+                      ? 'bg-primary-gold' 
+                      : 'bg-charcoal'
                   }`}
                   aria-label={`View testimonials ${index * cardsToShow + 1} to ${Math.min((index + 1) * cardsToShow, totalTestimonials)}`}
                 />
@@ -149,18 +149,18 @@ const TestimonialCard = ({ testimonial, index, isActive }) => {
       }}
       whileHover={{ 
         y: window.innerWidth >= 768 ? -10 : 0, // Only lift on hover for desktop
-        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
-        transition: { duration: 0.3 }
+        boxShadow: '0 10px 40px -5px oklch(90% 0.05 90)',
+        transition: { duration: 0.2 }
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className={`bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all h-full flex flex-col ${
-        isActive ? 'ring-2 ring-gold-500' : ''
+      className={`bg-charcoal/20 p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all h-full flex flex-col ${
+        isActive ? 'ring-2 ring-primary-gold' : ''
       }`}
     >
       {/* Hover effect */}
       <motion.div 
-        className="absolute inset-0 bg-gold-500 bg-opacity-5 rounded-xl"
+        className="absolute inset-0 bg-charcoal/30 bg-opacity-5 rounded-xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered && window.innerWidth >= 768 ? 1 : 0 }}
       />
@@ -168,15 +168,14 @@ const TestimonialCard = ({ testimonial, index, isActive }) => {
       <FiMessageSquare className="text-gold-500 text-2xl md:text-3xl mb-4 md:mb-6" />
       
       <motion.p 
-        className="text-gold-800 mb-4 md:mb-6 italic text-base md:text-lg relative z-10 flex-grow"
+        className="text-muted-gold mb-4 md:mb-6 italic font-[inter] text-base md:text-lg relative z-10 flex-grow"
       >
         "{testimonial.quote}"
       </motion.p>
       
       <div className="flex items-center relative z-10 mt-auto">
         <div>
-          <h4 className="font-bold text-gold-900 text-base md:text-lg">{testimonial.name}</h4>
-          <p className="text-gold-700 text-xs md:text-sm">{testimonial.position}</p>
+          <h4 className="font-bold font-[inter] text-light-gold text-base md:text-lg">{testimonial.name}</h4>
         </div>
       </div>
     </motion.div>

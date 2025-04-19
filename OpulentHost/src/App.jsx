@@ -5,7 +5,8 @@ import Footer from '@/components/layout/Footer';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import SectionSkeleton from '@/components/ui/SectionSkeleton';
 import './assets/styles/global.css';
-import {pricingPlans} from '@/data/pricing';
+import { pricingPlans } from '@/data/pricing';
+import SEO from './components/common/SEO';
 
 // Safe lazy loader
 const safeLazy = (importer) => {
@@ -33,8 +34,10 @@ const CTA = safeLazy(() => import('@/components/sections/CTA'));
 function App() {
   return (
     <ErrorBoundary>
+      <>
+      <SEO />
       <AppProvider>
-        <div className="font-sans text-gold-700 bg-obsidian-navy min-h-screen">
+        <div className="font-[inter] text-light-gold bg-dark-navy min-h-screen">
           <Header />
 
           <main className='space-y-12'>
@@ -43,7 +46,7 @@ function App() {
               <Clients />
               <Services />
               <Stats />
-              {/* <Work /> */}
+              <Work />
               <Testimonials />
               <Process />
               <CircularPricing plans={pricingPlans} />
@@ -54,6 +57,7 @@ function App() {
           <Footer />
         </div>
       </AppProvider>
+      </>
     </ErrorBoundary>
   );
 }

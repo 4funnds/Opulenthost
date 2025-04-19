@@ -24,7 +24,7 @@ const Stats = () => {
   }, [controls, inView]);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-linear-180/oklch from-gold-300 via-gold-500 to-gold-900 relative overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-charcoal/20 relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div 
         initial={{ opacity: 0 }}
@@ -36,7 +36,7 @@ const Stats = () => {
         className="absolute inset-0"
       >
         <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-transparent mix-blend-overlay filter blur-3xl opacity-70 animate-blob"></div>
-        <div className="absolute top-1/2 right-1/3 w-72 h-72 rounded-full bg-linear-90/oklch from-gold-500 via-gold-300 to-gold-900 mix-blend-overlay filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 right-1/3 w-72 h-72 rounded-full bg-charcoal/20 mix-blend-overlay filter blur-2xl opacity-70 animate-blob animation-delay-2000"></div>
       </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -101,7 +101,7 @@ const StatItem = ({ stat, index, controls }) => {
       />
       
       <motion.div
-        className="text-5xl font-bold mb-2 text-obsidian-navy"
+        className="text-5xl font-bold font-[inter] mb-2 text-ivory"
         animate={{
           scale: isHovered ? [1, 1.1, 1] : 1,
           transition: { duration: 0.6 }
@@ -119,9 +119,9 @@ const StatItem = ({ stat, index, controls }) => {
         {stat.value > 50 && !stat.suffix && '+'}
       </motion.div>
       <motion.div 
-        className="text-obsidian-navy font-semibold text-lg"
+        className="text-accent-color font-[inter] font-semibold text-lg"
         animate={{
-          color: isHovered ? '#998006' : '#040221',
+          color: isHovered ? 'oklch(80% 0.1 90)' : '',
           transition: { duration: 0.5 }
         }}
       >
