@@ -1,0 +1,325 @@
+/* src/assets/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@config "../../../tailwind.config.js";
+
+@theme {
+  --color-primary-gold: oklch(81% 0.19 90);
+  --color-light-gold: oklch(85% 0.15 90);
+  --color-dark-gold: oklch(75% 0.22 90);
+  --color-muted-gold: oklch(80% 0.1 90);
+
+  --color-dark-navy: oklch(15% 0.03 260);
+  --color-accent-color: oklch(90% 0.05 90);
+
+  --color-charcoal: oklch(34.09% 0.022 267.38);
+  --color-ivory: oklch(95.80% 0.012 91.52);
+
+  --animate-gold-pulse: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+
+  --shadow-gold-sm: 0 2px 8px rgba(212, 175, 55, 0.3);
+  --shadow-gold-md: 0 4px 12px rgba(212, 175, 55, 0.4);
+  --shadow-gold-lg: 0 8px 24px rgba(212, 175, 55, 0.5);
+
+}
+
+:root {
+    text-decoration-color: oklch(92.4% 0.12 95.746);
+    background-color: oklch(98.7% 0.022 95.277);
+    accent-color: oklch(82.8% 0.189 84.429);
+    
+  }
+
+.logo-text-zora {
+  font-family: "Didot", "Bodoni MT", serif;
+  font-size: 72px;
+  fill: white;
+  letter-spacing: 5px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+/* Custom base styles */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.animate-blob {
+  animation: blob 7s infinite ease-in-out;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animation-delay-6000 {
+  animation-delay: 6s;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes shine {
+  0% { background-position: 150% 0; }
+  100% { background-position: -50% 0; }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+@keyframes droplet-fall {
+  0% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient linear infinite;
+}
+
+.animate-shine {
+  animation: shine linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob
+  .animate-gradient,
+  .animate-shine {
+    animation: none !important;
+  }
+  * {
+    transition: none !important;
+  }
+}
+
+/* Wave container and base styles */
+.wave-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Generate random droplets */
+.wave-container:hover .water-droplet {
+  animation-duration: calc(2s + (var(--rand) * 3s));
+  animation-delay: calc(var(--rand) * 0.5s);
+  left: calc(var(--rand) * 100%);
+}
+
+/* Wave SVG styling */
+.wave-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 110%;
+  height: auto;
+  margin-left: -10%;
+  margin-right: -5% ;
+  margin-top: auto;
+  transform-origin: bottom center;
+  will-change: transform;
+}
+/* .wave-svg {
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom center;
+} */
+
+/* Water droplet styling */
+.water-droplet {
+  position: absolute;
+  background: oklch(90% 0.05 90);
+  border-radius: 50%;
+  will-change: transform, opacity;
+  filter: blur(0.5px);
+  animation: droplet-fall linear forwards;
+}
+
+/* Mask for gradual fade-out */
+.wave-mask {
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 50%,
+    rgba(0,0,0,0.8) 50%,
+    rgba(0,0,0,0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 30%,
+    rgba(0,0,0,0.8) 50%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+/* Fluid motion effects */
+@keyframes fluid-motion {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-20%) scaleY(1.1);
+  }
+}
+
+.wave-fluid {
+  animation: fluid-motion 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.wave-secondary-fluid {
+  animation: fluid-motion 8s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Scroll-responsive wave physics */
+[data-scroll-direction="down"] .wave-svg {
+  animation: wave-tilt-down 1.5s ease-out forwards;
+}
+
+[data-scroll-direction="up"] .wave-svg {
+  animation: wave-tilt-up 1.5s ease-out forwards;
+}
+
+/* Water surface tension effect */
+/* Add to global.css */
+.water-surface {
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary-gold) 0%,
+    var(--color-light-gold) 20%,
+    var(--color-dark-navy) 100%
+  );
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  transform: scaleY(calc(1 + (var(--scroll-velocity, 0) * 0.2)));
+  transition: transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.water-surface::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(
+    to bottom,
+    rgba(212, 175, 55, 0.4) 0%,
+    rgba(212, 175, 55, 0) 100%
+  );
+  filter: blur(2px);
+  will-change: transform, opacity;
+}
+
+/* Scroll-based animations */
+.scroll-wave {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+              height 1.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.scroll-wave-droplet {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 1s ease-out;
+}
+
+/* Mobile optimization */
+/* @media (max-width: 768px) {
+  .wave-container {
+    display: none;
+  }
+  .water-droplet {
+    display: none;
+  }
+  .wave-svg {
+    display: none;
+  }
+} */
+
+/* Section spill connector */
+.section-spill {
+  position: relative;
+  margin-top: -10vh;
+  padding-top: 10vh;
+  z-index: 1;
+}
+
+.section-spill-connector {
+  position: absolute;
+  top: -10vh;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.section-spill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20vh;
+  background: linear-gradient(
+    to bottom, 
+    rgba(216, 167, 0, 1) 80%,
+    rgba(216, 167, 0, 0.2) 100%
+  );
+  pointer-events: none;
+}
+
+@keyframes wave-tilt-down {
+  to {
+    transform: rotateX(10deg) scaleY(1.1);
+  }
+}
+
+@keyframes wave-tilt-up {
+  to {
+    transform: rotateX(-5deg) scaleY(0.95);
+  }
+}
