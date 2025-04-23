@@ -4,7 +4,7 @@ const SEO = ({ title, description, keywords, image, url, type = 'website' }) => 
   const siteName = 'Opulent Host - Premium Web Development & Design Solutions';
   const defaultDescription = 'Transform your online presence with our custom web development services. Specializing in React, Next.js, and UI/UX design for businesses or individual seeking performance and elegance';
   const defaultKeywords = 'web development, website design, custom web development, opulent host, premium web development, react development, Next.js, UI/UX design, figma design, custom websites, responsive design, SEO optimization, websites, business web solutions';
-  const siteUrl = 'https://opulent-host.com';
+  const siteUrl = 'https://opulent-host.vercel.app';
   const defaultImage = '../../../public/opulent_favicon.png';
 
   return (
