@@ -7,6 +7,7 @@ import SectionSkeleton from '@/components/ui/SectionSkeleton';
 import './assets/styles/global.css';
 import { pricingPlans } from '@/data/pricing';
 import SEO from './components/common/SEO';
+import { Analytics } from '@vercel/analytics/react';
 
 // Safe lazy loader
 const safeLazy = (importer) => {
@@ -55,6 +56,7 @@ function App() {
           </main>
 
           <Footer />
+         <Analytics />
         </div>
       </AppProvider>
       </>
