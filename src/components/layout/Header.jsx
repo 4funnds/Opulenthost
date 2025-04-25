@@ -33,7 +33,7 @@ const Logo = () => (
     >        
         <span className="text-2xl font-semibold font-[inter] text-primary-gold">Opulent</span>
         <RotatingText
-            texts={['Host', 'Sites', 'Blogs', 'Commerce', 'Stores', 'Folio']}
+            texts={['Host', 'Sites', 'Blogs', 'Commerce', 'Stores', 'Folio', 'Web']}
             mainClassName="px-auto ml-1.5 sm:px-2 md:px-3 bg-linear-90/oklch from-primary-gold via-light-gold to-dark-gold text-xl font-semibold font-[inter] text-charcoal overflow-hidden py-auto sm:py-1 md:py-2 justify-center rounded-lg"
             staggerFrom={"last"}
             initial={{ y: "100%" }}
@@ -80,7 +80,7 @@ const AuthButtons = () => (
             whileTap={{ scale: 0.98 }}
             href="#contact"
         >
-            Contact Us!
+            Hubungi Kami!
         </GradientText>
         <GradientText 
             as="a"
@@ -92,7 +92,7 @@ const AuthButtons = () => (
             whileTap={{ scale: 0.98 }}
             href="#pricing"
         >
-            Order Now
+            Pesan Sekarang
         </GradientText>
     </div>
 );
@@ -115,14 +115,14 @@ const MobileMenu = ({ isMenuOpen, links, toggleMenu }) => (
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="md:hidden bg-white overflow-hidden"
+                className="md:hidden bg-charcoal overflow-hidden"
             >
                 <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
                     {links.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-gold-700 hover:text-gold-500 transition-colors font-medium py-2"
+                            className="text-primary-gold hover:text-accent-color transition-colors font-medium font-[inter] py-2"
                             onClick={toggleMenu}
                         >
                             {link.name}
@@ -138,7 +138,7 @@ const MobileMenu = ({ isMenuOpen, links, toggleMenu }) => (
                             href="#contact"
                             onClick={toggleMenu}
                         >
-                            Contact Us
+                            Hubungi Kami!
                         </GradientText>
                         <GradientText 
                             as="a"
@@ -149,7 +149,7 @@ const MobileMenu = ({ isMenuOpen, links, toggleMenu }) => (
                             href="#pricing"
                             onClick={toggleMenu}
                         >
-                            Order Now
+                            Pesan Sekarang
                         </GradientText>
                     </div>
                 </div>

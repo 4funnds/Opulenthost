@@ -56,8 +56,8 @@ const Testimonials = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
-          title={<ShinyText text="Client's Stories" speed={2} className='text-light-gold font-[inter]'/>}
-          subtitle="What our clients say about our services"
+          title={<ShinyText text="Kisah Sukses Klien Kami" speed={2} className='text-light-gold font-[inter]'/>}
+          subtitle="Pengalaman nyata yang dirasakan klien dengan layanan berkualitas kami"
           subtitleClass='text-accent-color font-[inter]'
         />
 

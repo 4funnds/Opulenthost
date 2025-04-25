@@ -1,22 +1,22 @@
 export const testimonials = [
   {
     quote:
-      "They weren't just developers but strategic partners who understood our business goals and translated them into an effective online presence.",
+      "Mereka bukan sekadar pengembang website, tapi partner strategis yang memahami tujuan bisnis kami dan mengubahnya menjadi produk digital yang efektif.",
     name: "Michael Aditya",
   },
   {
     quote:
-      "As a small business owner with limited technical knowledge, I appreciated their clear communication and patience throughout the entire process.",
+      "Sebagai pemilik bisnis kecil dengan pengetahuan teknis terbatas, saya sangat menghargai komunikasi jelas dan kesabaran mereka selama seluruh proses.",
     name: "Nathaniel",
   },
   {
     quote:
-      "From concept to completion in just 2 weeks. The responsive design works flawlessly across all devices, which our customers love.",
+      "Dari konsep hingga penyelesaian hanya dalam 2 minggu. Desain responsif berfungsi sempurna di semua perangkat, yang sangat disukai pelanggan kami.",
     name: "Marzuqi",
   },
   {
     quote:
-      "My portfolio website was completely revamped with stunning visuals and design. ",
+      "Website Portofolio saya berubah drastis dari segi animasi dan visual, yang sangat membantu saya dalam mencari pekerjaan.",
     name: "Imanuel",
   },
 ];

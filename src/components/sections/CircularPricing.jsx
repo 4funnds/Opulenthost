@@ -59,10 +59,10 @@ const CircularPricing = ({ plans }) => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">
-            <ShinyText text="Our Pricing" speed={6} className='text-light-gold font-[inter]'/>
+            <ShinyText text="Investasi untuk Kesuksesan Online Anda" speed={6} className='text-light-gold font-[inter]'/>
           </h2>
           <p className="text-accent-color font-[inter] text-base md:text-lg">
-            Flexible options to fit your budget and requirements
+          Pilihan fleksibel yang disesuaikan dengan anggaran dan kebutuhan spesifik bisnis Anda
           </p>
         </div>
 

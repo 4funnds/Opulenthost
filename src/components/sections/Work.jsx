@@ -10,8 +10,8 @@ import ShinyText from '../animation/ShinyText';
 const projects = [
   {
     id: 1,
-    title: 'Zora Fashion Store',
-    description: 'A modern online store platform with react and tailwindcss',
+    title: 'Toko Baju Zora',
+    description: 'Website toko online modern yang dikembangkan dengan ReactJS dan TailwindCSS untuk pengalaman belanja tanpa hambatan',
     tech: ['react', 'tailwindcss', 'javascript', 'vite', 'wordpress']
   },
 ];
@@ -42,8 +42,8 @@ const Work = () => {
     <section id="work" ref={sectionRef} className="py-20">
       <div className="container mx-auto px-4">
         <SectionHeader
-          title={<ShinyText text="Recent Projects" speed={8} className='text-light-gold font-[inter] font-bold' />}
-          subtitle="See examples of my work and the results achieved for clients"
+          title={<ShinyText text="Proyek Terbaru" speed={8} className='text-light-gold font-[inter] font-bold' />}
+          subtitle="Lihat bukti nyata karya kami dan hasil luar biasa yang telah dicapai untuk klien"
           subtitleClass="text-accent-color font-[inter] font-semibold"
         />
         <div className="grid md:grid-cols-2 gap-8">
@@ -109,7 +109,7 @@ const ProjectCard = ({ project, index, inView, isLoading, onViewCaseStudy }) => 
             )}
           </AnimatePresence>
 
-          <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
               <rect width="100%" height="100%" fill="black"/>
               <text x="50%" y="55%" class="logo-text-zora">ZORA</text>
           </svg>
@@ -126,7 +126,7 @@ const ProjectCard = ({ project, index, inView, isLoading, onViewCaseStudy }) => 
               whileTap={{ scale: 0.98 }}
             >
               <a href="https://zora-store.vercel.app">
-              Review our work
+              Lihat Website
               </a>
             </button>
           </motion.div>
@@ -168,7 +168,7 @@ const ProjectCard = ({ project, index, inView, isLoading, onViewCaseStudy }) => 
                 whileHover={{ x: 5 , scale: 1.02}}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                You can have it too! <FiExternalLink className="ml-1" />
+                Ingin Website Seperti Ini? Klik di Sini! <FiExternalLink className="ml-1" />
               </motion.a>
             )}
           </AnimatePresence>

@@ -1,6 +1,6 @@
 import { FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
 
-const services = ['Company Landing Page', 'Web Development', 'Web Portfolio', 'Web Design', 'Web Stores', 'Blogs'];
+const services = ['Landing Page', 'Profil Perusahaan', 'Pengembangan Website', 'Portofolio Web Ekslusif', 'Desain Web Menawan', 'Toko Online', 'Blog'];
 
 const Footer = () => {
     return (
@@ -25,7 +25,7 @@ const FooterBrand = () => (
             <span className="text-2xl font-[inter] font-bold text-ivory">Host</span>
         </div>
         <p className="mb-4 font-[inter] text-accent-color">
-            Professional web design and development services to help your business grow online.
+        Jasa desain dan pengembangan web profesional untuk akselerasi pertumbuhan bisnis online Anda.
         </p>
         <div className="flex space-x-4 justify-center">
             <a href="https://www.facebook.com/denisalviano372" className="text-ivory hover:text-accent-color transition-colors" aria-label="Facebook">
@@ -52,7 +52,7 @@ const FooterLinks = ({ title, items }) => (
 
 const FooterContact = () => (
     <div>
-        <h4 className="text-ivory font-[inter] font-bold mb-4">Contact</h4>
+        <h4 className="text-ivory font-[inter] font-bold mb-4">Kontak</h4>
         <ul className="space-y-2 font-[inter] text-accent-color">
             <li>hostopulent@gmail.com</li>
             <li>+62 851-4357-0076</li>
@@ -65,14 +65,14 @@ const FooterBottom = () => (
     <div className="pt-8 border-t border-ivory text-sm text-accent-color">
         <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-                © {new Date().getFullYear()} OpulentHost. All rights reserved.
+                © {new Date().getFullYear()} OpulentHost. Seluruh hak cipta dilindungi.
             </div>
             <div className="flex space-x-6">
                 <a href="#" className="hover:text-light-gold transition-colors">
-                    Privacy Policy
+                    Kebijakan Privasi
                 </a>
                 <a href="#" className="hover:text-light-gold transition-colors">
-                    Terms of Service
+                    Ketentuan Layanan
                 </a>
                 <a href="#" className="hover:text-light-gold transition-colors">
                     Cookies

@@ -4,10 +4,10 @@ import CountUp from '../ui/CountUp';
 import { useEffect, useState } from 'react';
 
 const stats = [
-  { value: 3, label: 'Months of Basic Support Included' },
-  { value: 14, label: 'Day Delivery Timeline' },
-  { value: 3, label: 'Rounds of Revision Included' },
-  { value: 100, label: 'Website Features Available' },
+  { value: 3, label: 'Bulan Bantuan untuk Masalah Sederhana' },
+  { value: 14, label: 'Hari Pengerjaan Proyek' },
+  { value: 3, label: 'Kali Revisi' },
+  { value: 100, label: 'Fitur Website Standar dan Kustom' },
 ];
 
 const Stats = () => {

@@ -17,8 +17,8 @@ const Services = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
-          title={<ShinyText text="Everything we have to develop your website" speed={4} as="h1"/>}
-          subtitle="Our skillset to provide web solutions tailored to your business needs"
+          title={<ShinyText text="Semua yang Kami Miliki untuk Membangun Website Impian Anda" speed={4} as="h1"/>}
+          subtitle="Keahlian komprehensif kami untuk menghadirkan solusi web yang dirancang khusus sesuai kebutuhan bisnis Anda"
           titleClass="text-light-gold"
           subtitleClass="text-accent-color"
         />

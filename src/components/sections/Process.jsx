@@ -5,10 +5,10 @@ import { useState } from 'react';
 import ShinyText from '../animation/ShinyText';
 
 const processSteps = [
-  { title: 'Discovery', description: 'Understand your goals and requirements' },
-  { title: 'Design', description: 'Create wireframes and visual designs' },
-  { title: 'Development', description: 'Build the website with clean, efficient code' },
-  { title: 'Launch', description: 'Deploy and optimize for performance' },
+  { title: 'Penemuan', description: 'Memahami secara mendalam tujuan dan kebutuhan bisnis Anda' },
+  { title: 'Desain', description: 'Menciptakan wireframe dan desain visual yang memikat target audiens Anda' },
+  { title: 'Pengembangan', description: 'Membangun website dengan kode yang optimal dan efisien untuk performa terbaik' },
+  { title: 'Peluncuran', description: 'Mendeploy dan mengoptimalkan untuk kinerja maksimal dan pengalaman pengguna terbaik' },
 ];
 
 const Process = () => {
@@ -29,8 +29,8 @@ const Process = () => {
       
       <div className="container mx-auto px-4">
         <SectionHeader
-          title={<ShinyText text="Our Professional Approach" speed={4} className='text-light-gold'/>}
-          subtitle= "A streamlined approach to delivering exceptional results"
+          title={<ShinyText text="Pendekatan Profesional Kami" speed={4} className='text-light-gold'/>}
+          subtitle= "Pendekatan terstruktur untuk menghasilkan website berkinerja luar biasa"
           subtitleClass="text-accent-color"
         />
         <div className="max-w-4xl mx-auto">

@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import SectionHeader from '../ui/SectionHeader';
 import ShinyText from '../animation/ShinyText';
 
-const clients = ['Portfolio Website', 'E-Commerce Website', 'Landing Page', 'Blog'];
+const clients = ['Website Portofolio', 'Website Toko Online', 'Landing Page', 'Blog'];
 
 const ClientLogo = ({ name, index, inView }) => (
   <motion.div
@@ -53,7 +53,7 @@ const Clients = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
-          title="We ready to serve you"
+          title="Kami Siap Melayani Anda"
           center
           titleClass="text-light-gold hover:text-accent-color transition-colors"
           // subtitleClass="text-gold-700"

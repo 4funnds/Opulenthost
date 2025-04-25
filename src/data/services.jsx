@@ -4,38 +4,38 @@ import { SiTailwindcss, SiNextdotjs, SiJavascript, SiNodedotjs } from "react-ico
 export const services = [
   {
     icon: <FaReact/>,
-    title: "React Development",
+    title: "Aplikasi Web Modern dengan Framework React",
     description:
-      "Modern, performant web applications built with React",
+      "Aplikasi web canggih dengan performa optimal yang dibangun menggunakan teknologi React terdepan",
   },
   {
     icon: <FaFigma/>,
-    title: "Design UI/UX with Figma",
-    description: "Modern user interface and eye-catching user experience with Figma"
+    title: "Desain UI/UX yang Menawan dengan Figma",
+    description: "Antarmuka pengguna modern dan pengalaman visual memukau yang dirancang dengan presisi menggunakan Figma"
   },
   {
     icon: <SiTailwindcss/>,
-    title: 'Responsive Design',
-    description: 'Pixel-perfect websites that look great on any device, built with Tailwind CSS.',
+    title: 'Desain Responsif',
+    description: 'Website dengan tampilan sempurna di berbagai perangkat, dibangun dengan Tailwind CSS untuk pengalaman visual tanpa kompromi',
   },
   {
     icon: <FaWordpress/>,
-    title: "Website Design",
-    description: "Powerfull website without the complexity"
+    title: "Desain Website yang Powerfull",
+    description: "Website yang enerjik dan tampilan profesional tanpa kerumitan teknis"
   },
   {
     icon: <SiNextdotjs/>,
-    title: "Building Tomorrow's Web Today",
-    description: "delivers lightning-fast page loads, exceptional SEO rankings, and seamless user experiences that keep your audience engaged."
+    title: "Pengalaman Full-Stack dengan Satu Framework",
+    description: "Menghadirkan kecepatan loading kilat, peringkat SEO unggul, dan pengalaman pengguna mulus yang membuat audiens Anda tetap terpukau"
   },
   {
     icon: <SiJavascript/>,
-    title: "Interactive Website",
-    description: "Create dynamic, responsive interfaces that captivate users with smooth animations and real-time interactions."
+    title: "Website Interaktif yang Menggugah",
+    description: "Menciptakan antarmuka dinamis dan responsif yang memikat pengguna dengan animasi halus dan interaksi real-time"
   },
   {
     icon: <SiNodedotjs/>,
-    title: "Full-Stack Development with Javascript",
-    description: "Unified technology from server to browser, enabling faster development cycles and seamless data flow for robust web applications."
+    title: "Pengembangan Full-Stack dengan Javascript",
+    description: "Teknologi terpadu dari server hingga browser, memungkinkan siklus pengembangan lebih cepat dan aliran data mulus untuk aplikasi web yang tangguh"
   }
 ];

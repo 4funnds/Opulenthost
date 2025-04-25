@@ -32,7 +32,7 @@ const CTA = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            Ready to Transform Your Online Presence?
+            Siap Mengubah Kehadiran Digital Anda menjadi Aset Bisnis?
           </motion.h2>
           
           <motion.p 
@@ -41,7 +41,7 @@ const CTA = () => {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Let's discuss how We can help you achieve your business goals with a custom web solution.
+            Mari diskusikan bagaimana kami dapat membantu Anda mencapai tujuan bisnis dengan solusi web premium yang dirancang khusus.
           </motion.p>
 
           <motion.div
@@ -53,7 +53,7 @@ const CTA = () => {
               href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSBmljzwGvgJwHScQNVvXldtqdVThtgLLBmsDfkwRmvPHTxfVGTWGvmTGGvGbPGPrhZjmnnK"
               className='relative overflow-hidden transition-all hover:scale-102'
             >
-              Get in Touch
+              Hubungi Kami Sekarang
             </Button>
           </motion.div>
         </motion.div>

@@ -155,7 +155,7 @@ const Hero = () => {
               animationSpeed={8}
               className="text-4xl md:text-5xl font-[inter]"
             >
-              Elevate Your Website, Accelerate Your Growth
+              Satu Langkah untuk Menaklukkan Digitalisasi
             </GradientText>
           </motion.h1>
 
@@ -165,7 +165,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl font-[inter] text-accent-color mb-8 max-w-2xl mx-auto"
           >
-            We provide web solutions that understand your business and customers
+            Kami menghadirkan solusi web yang memahami bisnis dan pelanggan Anda secara mendalam dengan pendekatan yang professional
           </motion.p>
 
           <motion.div
@@ -185,7 +185,7 @@ const Hero = () => {
               whileTap={{ scale: 0.98 }}
             >
               <ShinyText 
-                text="View Our Recent Project" 
+                text="Lihat Proyek Terbaru Kami" 
                 speed={8} 
                 className="font-medium font-[inter] text-dark-navy"
               />
